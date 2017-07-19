@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Blog Entry</h1>
+<form action="/new_entry" method="post">
+
+        <label for="title_field">Blog Title:</label>
+        <input id="title_field" name="title" type="text" value="{{ new_entry_title }}">
+
+        <label for="body_field">Blog Body:</label>
+        <textarea rows="4" cols="50" id="body_field" name="body" >{{ new_entry_body }}</textarea>
+        <!-- <input type="hidden" name="owner" value="{{ new_entry_owner }}"> -->
+
+    <input id="submit_button" type="submit" value="Save">
+</form>
+
+{% endblock %}
