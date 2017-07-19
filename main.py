@@ -47,7 +47,7 @@ class User(db.Model):
         self.password = password
 
     def __repr__ (self):
-        return '<\nID: %s\nEmail: %s\nPassword: %s\n>' % (self.id, self.email, self.password) #self.entries
+        return '<\nID: %s\nEmail: %s\n>' % (self.id, self.email) #self.password, elf.entries
 
     def is_valid(self):
         if self.email and self.password:
@@ -56,8 +56,19 @@ class User(db.Model):
             return False
 
 
+# 
+# @app.route('/search_by_owner', methods=['POST'])
+# def search_by_owner():
+    # user_entry = User.query.filter_by(email=email).first()
 
-
+    # entry.owner = request.form['entry_owner']
+    # entry_posters_list = User.query.all()
+    #
+    # if entry_owner and (entry.owner in entry_posters_list): ##
+    #     return render_template('/serach_by_owner.html', entry_owner=entry_owner)
+    # else:
+    #     flash('User not found or has no posts')
+    #     return render_template('/all_entries.html')
 
 @app.before_request
 def require_login():
